@@ -1,0 +1,85 @@
+<!-- dashboard-->
+
+<!--
+ * The main HTML page for the dashboard functionality of the application.
+  This page includes a navigation menu with dropdown options for different user roles
+  (Attendee, Organizer, Worker, Admin), as well as a main content area with a welcome message.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet_dashboard.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <script src="../scripts/dashboard.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Ole Miss Events</h1>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Attendee</a>
+            <div class="dropdown-content">
+              <a href="attendee_view_events.html">View Events</a>
+              <a href="#" id="showLikedEventsBtn">Show Liked Events</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Organizer</a>
+            <div class="dropdown-content">
+              <a href="#">View Created Events</a>
+              <a href="#" id="createEventBtn">Create an Event</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Worker</a>
+            <div class="dropdown-content">
+              <a href="#">View Assigned Events</a>
+              <a href="#">Update Schedule</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Admin</a>
+            <div class="dropdown-content">
+              <a href="#">Manage Events</a>
+              <a href="#">Manage Workers</a>
+              <a href="#">Manage Organizers</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+     
+    </main>
+    <div class="events-container"></div>
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+         <h2>Create an Event</h2>
+         <form id="createEventForm">
+           <input type="text" id="eventName" placeholder="Event Name" required 
+                  maxlength="25"
+                  oninput="this.value = this.value.split(/\s+/).slice(0,10).join(' ')">
+           <textarea id="eventDescription" placeholder="Event Description" required
+                     maxlength="500"
+                     oninput="this.value = this.value.split(/\s+/).slice(0,200).join(' ')"></textarea>
+          <select id="eventLocation" required>
+            <option value="">Select a location</option>
+            <option value="The Grove">The Grove</option>
+            <option value="Vaught-Hemingway Stadium">Vaught-Hemingway Stadium</option>
+            <option value="The Pavilion">The Pavilion</option>
+          </select>
+          <input type="date" id="eventDate" required>
+          <input type="time" id="eventTime" required>
+          <button type="submit">Create Event</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
